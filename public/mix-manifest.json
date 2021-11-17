@@ -1,4 +1,14 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/backend/js/app.js": "/backend/js/app.js",
+    "/frontend/css/app.css": "/frontend/css/app.css",
+    "/backend/r.zip": "/backend/r.zip",
+    "/frontend/about.html": "/frontend/about.html",
+    "/frontend/blog-details.html": "/frontend/blog-details.html",
+    "/frontend/blog.html": "/frontend/blog.html",
+    "/frontend/causes-details.html": "/frontend/causes-details.html",
+    "/frontend/causes.html": "/frontend/causes.html",
+    "/frontend/contact.html": "/frontend/contact.html",
+    "/frontend/event-details.html": "/frontend/event-details.html",
+    "/frontend/index.html": "/frontend/index.html",
+    "/frontend/volunteer.html": "/frontend/volunteer.html"
 }

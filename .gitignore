@@ -8,6 +8,8 @@
 .phpunit.result.cache
 docker-compose.override.yml
 Homestead.json
+composer.lock
+package-lock.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
