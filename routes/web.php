@@ -26,7 +26,7 @@ Route::post('tag/image/upload/{tag}',[TagController::class,'imageStore'])->name(
 Route::post('tag/image/delete/{tag}',[TagController::class,'imageDelete'])->name('tag.deleteImage');
 
 Auth::routes([
-    'register' => false,
+    'register' => true,
 ]);
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
