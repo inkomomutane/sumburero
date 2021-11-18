@@ -21,6 +21,13 @@ Route::get('/', function () {
     return view('frontend.home.home');
 });
 
+Route::get('/storagelink',function(){
+    $targetFolder = __DIR__. '/../storage/app/public';
+    $linkFolder = __DIR__. '/../../public_html/storage';
+   symlink($targetFolder, $linkFolder) or die("error creating symlink");
+   echo 'Symlink process successfully completed';
+});
+
 Route::resource('tag', TagController::class);
 Route::post('tag/image/upload/{tag}',[TagController::class,'imageStore'])->name('tag.uploadImage');
 Route::post('tag/image/delete/{tag}',[TagController::class,'imageDelete'])->name('tag.deleteImage');
