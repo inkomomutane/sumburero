@@ -43,7 +43,6 @@
     <link rel="stylesheet" href="{{ asset('backend/bootstrap-daterangepicker/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
-
 @endpush
 @push('jsLibs')
     <script src="{{ asset('backend/datatables/datatables.min.js') }}"></script>

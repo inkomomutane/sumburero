@@ -13,6 +13,12 @@
                     <span>
                         Estatísticas
                     </span></a></li>
+
+                    <li class="@if (Route::is('tag.*')) active @endif"><a class="nav-link" href="{{ route('tag.index') }}"><i
+                        class="fas fa-tags"></i>
+                    <span>
+                        Tags
+                    </span></a></li>
         </ul>
     </aside>
 </div>

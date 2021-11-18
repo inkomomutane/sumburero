@@ -51,6 +51,4 @@
     <script src="{{ asset('backend/js/custom.js') }}"></script>
 
 </body>
-</body>
-
 </html>

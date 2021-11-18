@@ -2,10 +2,17 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use App\Http\Traits\SyncImage;
+use App\Models\Image;
+use App\Models\Role;
+use App\Models\Tag;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
+use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
+    use SyncImage;
     /**
      * A basic test example.
      *
@@ -13,6 +20,17 @@ class ExampleTest extends TestCase
      */
     public function test_example()
     {
+
+
+        $tag = Role::create([
+            "guard_name" => "web",
+            "name" => "Sponsor2"
+        ]);
+
+        $this->syncImage("Lookup",$tag);
+
         $this->assertTrue(true);
     }
+
+
 }

@@ -51,4 +51,8 @@ class Tag extends Model
     {
         return $this->morphedByMany(Video::class, 'taggable');
     }
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }
