@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Image
- * 
+ *
  * @property int $id
  * @property string|null $url
  * @property int $imageable_id
@@ -34,4 +34,9 @@ class Image extends Model
 		'imageable_id',
 		'imageable_type'
 	];
+    
+    public function imageable()
+    {
+        return $this->morphTo();
+    }
 }

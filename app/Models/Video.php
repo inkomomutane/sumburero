@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Video
- * 
+ *
  * @property int $id
  * @property string|null $url
  * @property int $videable_id
@@ -34,4 +34,9 @@ class Video extends Model
 		'videable_id',
 		'videable_type'
 	];
+
+    public function videable()
+    {
+        return $this->morphTo();
+    }
 }

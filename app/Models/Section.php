@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Section
- * 
+ *
  * @property int $id
  * @property string|null $title
  * @property string|null $description
@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $cover_image
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Post $post
  *
  * @package App\Models
@@ -43,4 +43,14 @@ class Section extends Model
 	{
 		return $this->belongsTo(Post::class);
 	}
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function videos()
+    {
+        return $this->morphMany(Video::class, 'videable');
+    }
 }

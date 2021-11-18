@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Post
- * 
+ *
  * @property int $id
  * @property string|null $title
  * @property string|null $subtitle
@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $resume
  * @property string $keywords
  * @property string|null $cover_image
- * 
+ *
  * @property Category $category
  * @property User $user
  * @property Collection|Comment[] $comments
@@ -62,7 +62,7 @@ class Post extends Model
 		return $this->belongsTo(Category::class);
 	}
 
-	public function user()
+	public function author()
 	{
 		return $this->belongsTo(User::class, 'author_id');
 	}
@@ -76,4 +76,19 @@ class Post extends Model
 	{
 		return $this->hasMany(Section::class);
 	}
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function videos()
+    {
+        return $this->morphMany(Video::class, 'videable');
+    }
+
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 }

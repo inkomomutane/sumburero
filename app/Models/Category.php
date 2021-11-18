@@ -12,13 +12,13 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Category
- * 
+ *
  * @property int $id
  * @property string|null $title
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $description
- * 
+ *
  * @property Collection|Post[] $posts
  *
  * @package App\Models
@@ -41,4 +41,14 @@ class Category extends Model
 	{
 		return $this->hasMany(Post::class);
 	}
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function videos()
+    {
+        return $this->morphMany(Video::class, 'videable');
+    }
 }

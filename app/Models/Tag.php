@@ -12,12 +12,12 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Tag
- * 
+ *
  * @property int $id
  * @property string|null $name
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Collection|Taggable[] $taggables
  *
  * @package App\Models
@@ -34,4 +34,21 @@ class Tag extends Model
 	{
 		return $this->hasMany(Taggable::class);
 	}
+
+
+     /**
+     * Get all of the posts that are assigned this tag.
+     */
+    public function posts()
+    {
+        return $this->morphedByMany(Post::class, 'taggable');
+    }
+
+    /**
+     * Get all of the videos that are assigned this tag.
+     */
+    public function videos()
+    {
+        return $this->morphedByMany(Video::class, 'taggable');
+    }
 }
