@@ -17,7 +17,7 @@ class TagController extends Controller
     use UploadImage, SyncImage,DeleteImages;
     public function imageStore(BackendUploadImage $request, Tag $tag)
     {
-       
+
         try {
             $image = $this->upload($request->modelImageContent, $request->modelImageName);
             if ($image == false) return false;
@@ -145,9 +145,12 @@ class TagController extends Controller
     {
 
 
-        if ($tag && $tag->imovels->count() == 0) {
+        if ($tag) {
             try {
+                $tag->posts()->sync([]);
+                $tag->videos()->sync([]);
                 $tag->delete();
+                
                 session()->flash('success', 'Tag deletada com sucesso.');
                 return redirect()->route('tag.index');
             } catch (\Throwable $e) {
