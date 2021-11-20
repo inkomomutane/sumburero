@@ -26,6 +26,12 @@
                             <span>Website Config</span>
                         </a>
                     </li>
+                    <li class="@if (Route::is('category.*')) active @endif">
+                        <a class="nav-link" href="{{ route('category.index') }}">
+                            <i class="fas fa-list"></i>
+                            <span>Categorias</span>
+                        </a>
+                    </li>
                     <ul class="sidebar-menu">
                         <li class="@if (Route::is('user.*')) active @endif">
                             <a class="nav-link" href="{{ route('user.index') }}"><i class="fas fa-users-cog"></i>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ConfigSiteController;
 use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\UserController;
@@ -52,7 +53,7 @@ Auth::routes([
 ]);
 
 Route::middleware(['auth'])->group(function () {
-Route::resource('dashboard/tag', TagController::class);
+
 
 Route::get('dashboard/website', [ConfigSiteController::class,'index'])->name('website.index');
 Route::post('dashboard/store/website', [ConfigSiteController::class,'store'])->name('website.store');
@@ -63,8 +64,13 @@ Route::get('dashboard/website/{website}', [ConfigSiteController::class,'show'])-
 
 Route::post('dashboard/website/image/upload/{website}',[ConfigSiteController::class,'imageStore'])->name('website.uploadImage');
 
+Route::resource('dashboard/tag', TagController::class);
 Route::post('dashboard/tag/image/upload/{tag}',[TagController::class,'imageStore'])->name('tag.uploadImage');
 Route::post('dashboard/tag/image/delete/{tag}',[TagController::class,'imageDelete'])->name('tag.deleteImage');
+
+Route::resource('dashboard/category', CategoryController::class);
+Route::post('dashboard/category/image/upload/{category}',[CategoryController::class,'imageStore'])->name('category.uploadImage');
+Route::post('dashboard/category/image/delete/{category}',[CategoryController::class,'imageDelete'])->name('category.deleteImage');
 
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');

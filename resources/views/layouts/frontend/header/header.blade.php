@@ -18,9 +18,10 @@
                 <li class="@if (Route::is('welcome')) active @endif"><a href="{{ route('welcome') }}">Sobre Nós</a></li>
                 <li class="has-submenu"><a href="causes.html">Notícias</a>
                   <ul class="submenu-nav">
-                    <li class="@if (Route::is('welcome')) active @endif"><a href="{{ route('welcome') }}">Causes</a></li>
-                    <li class="@if (Route::is('welcome')) active @endif"><a href="{{ route('welcome') }}">Causes Details</a></li>
-                  </ul>
+                      @foreach ($categories as $category)
+                      <li class="@if (Route::is('welcome')) active @endif"><a href="{{ route('welcome') }}">{{$category->title}}</a></li>
+                      @endforeach
+                                      </ul>
                 </li>
                 <li class="@if (Route::is('contact')) active @endif"><a href="{{route('contact')}}">Contacto</a></li>
               </ul>

@@ -144,6 +144,7 @@ class TagController extends Controller
             try {
                 $tag->posts()->sync([]);
                 $tag->videos()->sync([]);
+                $tag->images()->sync([]);
                 $tag->delete();
 
                 session()->flash('success', 'Tag deletada com sucesso.');
