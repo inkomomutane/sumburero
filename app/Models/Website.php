@@ -46,9 +46,14 @@ class Website extends Model
 		'emails',
 		'mission',
 		'vision',
+        'map',
 		'objectives',
 		'country',
 		'open_at',
 		'close_at'
 	];
+	public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 }

@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 class UploadImageController extends Controller
 {
     use UploadImage, SyncImage;
+    
+
     public function create(BackendUploadImage $request, Model $model)
     {
        // dd($model);

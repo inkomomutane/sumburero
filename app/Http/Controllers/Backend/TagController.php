@@ -14,20 +14,15 @@ use Illuminate\Http\Request;
 class TagController extends Controller
 {
 
+
     use UploadImage, SyncImage,DeleteImages;
+
+
+
     public function imageStore(BackendUploadImage $request, Tag $tag)
     {
 
-        try {
-            $image = $this->upload($request->modelImageContent, $request->modelImageName);
-            if ($image == false) return false;
-            $this->syncImage($image, $tag);
-            session()->flash('success', 'Imagem adicionada com sucesso.');
-            return redirect()->back();
-        } catch (\Throwable $th) {
-            session()->flash('error', 'Erro ao addicionar Imagem.');
-            return redirect()->back();
-        }
+        return $this->syncImage($request, $tag);
     }
 
     public function imageDelete(Request $request,Tag $tag)
@@ -150,7 +145,7 @@ class TagController extends Controller
                 $tag->posts()->sync([]);
                 $tag->videos()->sync([]);
                 $tag->delete();
-                
+
                 session()->flash('success', 'Tag deletada com sucesso.');
                 return redirect()->route('tag.index');
             } catch (\Throwable $e) {
