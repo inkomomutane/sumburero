@@ -14,27 +14,16 @@
           <div class="header-align">
             <div class="header-navigation-area">
               <ul class="main-menu nav justify-content-center">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li class="has-submenu"><a href="causes.html">Causes</a>
+                <li class="@if (Route::is('welcome')) active @endif" ><a href="{{ route('welcome') }}">Início</a></li>
+                <li class="@if (Route::is('welcome')) active @endif"><a href="{{ route('welcome') }}">Sobre Nós</a></li>
+                <li class="has-submenu"><a href="causes.html">Notícias</a>
                   <ul class="submenu-nav">
-                    <li><a href="causes.html">Causes</a></li>
-                    <li><a href="causes-details.html">Causes Details</a></li>
-                  </ul>
+                      @foreach ($categories as $category)
+                      <li class="@if (Route::is('welcome')) active @endif"><a href="{{ route('welcome') }}">{{$category->title}}</a></li>
+                      @endforeach
+                                      </ul>
                 </li>
-                <li class="has-submenu"><a href="blog.html">Blog</a>
-                  <ul class="submenu-nav">
-                    <li><a href="blog.html">Blog Grid</a></li>
-                    <li><a href="blog-details.html">Blog Single</a></li>
-                  </ul>
-                </li>
-                <li class="has-submenu"><a href="index.html">Pages</a>
-                  <ul class="submenu-nav">
-                    <li><a href="event-details.html">Event Details</a></li>
-                    <li><a href="volunteer.html">Volunteer</a></li>
-                  </ul>
-                </li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li class="@if (Route::is('contact')) active @endif"><a href="{{route('contact')}}">Contacto</a></li>
               </ul>
             </div>
             <div class="header-action-area">
@@ -43,7 +32,7 @@
                 <span></span>
                 <span></span>
               </button>
-              <a href="contact.html" class="btn-theme btn-gradient btn-slide btn-style">Give Support <img class="icon icon-img" src="{{asset('frontend/assets/img/icons/arrow-line-right2.png')}}" alt="Icon"></a>
+              <a href="{{ route('welcome') }}" class="btn-theme btn-gradient btn-slide btn-style">Pesquisar &nbsp; &nbsp; <i class="icofont-search-1" style="color: #fff"></i></a>
             </div>
           </div>
         </div>

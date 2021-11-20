@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Requests\backend;
+namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
-class TagRequest extends FormRequest
+class Delete extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +25,7 @@ class TagRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required'
+            //
         ];
     }
 }

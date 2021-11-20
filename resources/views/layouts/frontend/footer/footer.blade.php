@@ -1,4 +1,5 @@
 
+
   <!--== Start Footer Area Wrapper ==-->
   <footer class="footer-area">
     <div class="footer-main">
@@ -10,17 +11,15 @@
                 <a class="footer-logo" href="index.html">
                   <img src="{{ asset('frontend/assets/img/logo.png')}}" alt="Logo">
                 </a>
-                <p>Lorem Ipsum is simply dummy text of the industry orem Ipsum has been the industry's since the when unknown.</p>
-                <div class="widget-total-raised">
-                  <h4 class="raised-title">Total Raised:</h4>
-                  <div class="raised-amount">$8,965</div>
-                </div>
+                <p>
+                    {!! $resume !!}
+                </p>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <div class="widget-item">
-              <h4 class="widget-title line-style">Gallery</h4>
+              <h4 class="widget-title line-style">Galeria</h4>
               <div class="widget-gallery">
                 <div class="row row-cols-3 row-gutter-10">
                   <div class="col">
@@ -65,27 +64,20 @@
           </div>
           <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
             <div class="widget-item menu-wrap-two-column">
-              <h4 class="widget-title line-style">Quick Links</h4>
+              <h6 class="widget-title line-style">Links do site</h6>
               <nav class="widget-menu-wrap">
                 <div class="row">
                   <div class="col-6 col-sm-6 col-md-6 pr-sm-5">
                     <ul class="nav-menu nav">
-                      <li><a href="about.html">About Us</a></li>
-                      <li><a href="blog.html">Blog Post Terms</a></li>
-                      <li><a href="#/">Conditions</a></li>
-                      <li><a href="#/">Privacy Policy</a></li>
-                      <li><a href="#/">Documentation</a></li>
-                      <li><a href="#/">Donners</a></li>
+                      <li><a href="about.html">Início</a></li>
+                      <li><a href="blog.html">Sobre nós</a></li>
+                      <li><a href="#/">Notícias</a></li>
                     </ul>
                   </div>
                   <div class="col-6 col-sm-6 col-md-6 pl-sm-5">
                     <ul class="nav-menu nav align-right">
-                      <li><a href="volunteer.html">Become Volunteer</a></li>
-                      <li><a href="#/">Quick Fundraise</a></li>
-                      <li><a href="#/">Give Donation</a></li>
-                      <li><a href="volunteer.html">Become Volunteer</a></li>
-                      <li><a href="causes-details.html">Food And Water</a></li>
-                      <li><a href="causes-details.html">Medical facilities</a></li>
+                        <li><a href="#/">contacte nos</a></li>
+                        <li><a href="#/">Pesqisar</a></li>
                     </ul>
                   </div>
                 </div>
@@ -103,7 +95,7 @@
           <div class="row align-items-center">
             <div class="col-12">
               <div class="widget-copyright text-center">
-                <p>© 2025 <span>Givest</span>. Made with <i class="icon_heart"></i> by <a target="_blank" href="https://www.hasthemes.com">HasThemes</a></p>
+                <p>© {{ now()->year}} <span>Sumburero</span>. All rights reserved. </p>
               </div>
             </div>
           </div>

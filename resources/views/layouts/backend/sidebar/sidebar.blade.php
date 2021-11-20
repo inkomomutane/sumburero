@@ -14,11 +14,29 @@
                         Estatísticas
                     </span></a></li>
 
-                    <li class="@if (Route::is('tag.*')) active @endif"><a class="nav-link" href="{{ route('tag.index') }}"><i
-                        class="fas fa-tags"></i>
-                    <span>
-                        Tags
-                    </span></a></li>
+                    <li class="@if (Route::is('tag.*')) active @endif">
+                        <a class="nav-link" href="{{ route('tag.index') }}">
+                            <i class="fas fa-tags"></i>
+                            <span>Tags</span>
+                        </a>
+                    </li>
+                    <li class="@if (Route::is('website.*')) active @endif">
+                        <a class="nav-link" href="{{ route('website.index') }}">
+                            <i class="fas fa-cogs"></i>
+                            <span>Website Config</span>
+                        </a>
+                    </li>
+                    <li class="@if (Route::is('category.*')) active @endif">
+                        <a class="nav-link" href="{{ route('category.index') }}">
+                            <i class="fas fa-list"></i>
+                            <span>Categorias</span>
+                        </a>
+                    </li>
+                    <ul class="sidebar-menu">
+                        <li class="@if (Route::is('user.*')) active @endif">
+                            <a class="nav-link" href="{{ route('user.index') }}"><i class="fas fa-users-cog"></i>
+                                <span>Usuarios</span></a></li>
+                    </ul>
         </ul>
     </aside>
 </div>

@@ -12,9 +12,11 @@ use Illuminate\Http\Request;
 class UploadImageController extends Controller
 {
     use UploadImage, SyncImage;
+    
+
     public function create(BackendUploadImage $request, Model $model)
     {
-       // dd($model);
+       /* dd($model);
         try {
             $image = $this->upload($request->modelImageContent, $request->modelImageName);
             if ($image == false) return false;
@@ -24,6 +26,6 @@ class UploadImageController extends Controller
         } catch (\Throwable $th) {
             session()->flash('error', 'Erro ao addicionar Imagem.');
             return redirect()->back();
-        }
+        }*/
     }
 }

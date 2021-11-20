@@ -751,16 +751,24 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 .alert.alert-danger {
-    background-color: #D9534F
+    background-color: #FB9C9CCF;
+color: #440303;
+font-weight: 800;
+border-left: 5px solid #c80c0c;
 }
 
 .alert.alert-light {
     background-color: #DCE1E5;
-    color: #3B3D55
+    color: #3B3D55;
+
+font-weight: 800;
+border-left: 5px solid #3B3D55;
 }
 
 .alert.alert-dark {
-    background-color: #3B3D55
+    background-color: #3B3D55;
+font-weight: 800;
+border-left: 5px solid #3B3D55;
 }
 
 .card {

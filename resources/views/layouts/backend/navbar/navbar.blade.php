@@ -19,13 +19,13 @@
             <li class="dropdown"><a href="#" data-toggle="dropdown"
                     class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                     <img alt="image"
-                        src="{{ asset('backend/profile/' . (auth()->user()->profileImage ? auth()->user()->profileImage->url : "")) }}"
+                        src="{{ asset('backend/images/avatar.png') }}"
                         class="mr-1 rounded-circle">
 
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dropdown-title text-success">Online</div>
-                    <a href="#" class="dropdown-item has-icon">
+                    <a href="{{ route('user.show', Auth::user()->id) }}" class="dropdown-item has-icon">
                         <i class="far fa-user"></i> {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-divider"></div>
