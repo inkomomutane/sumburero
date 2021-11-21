@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Helpers\PaginationHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\UploadImage as BackendUploadImage;
 use App\Http\Requests\Backend\CategoryRequest;
@@ -17,6 +18,13 @@ class CategoryController extends Controller
     use UploadImage, SyncImage,DeleteImages;
 
 
+    public function posts(Category $category)
+    {
+        return view('frontend.category.posts')->with([
+            'title' => $category->title,
+            'posts' => PaginationHelper::paginate($category->posts->where('published',true),1)
+        ]);
+    }
 
     public function imageStore(BackendUploadImage $request, Category $category)
     {

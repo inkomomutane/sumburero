@@ -2,9 +2,14 @@
 
 namespace App\Providers;
 
+
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Sanctum\Sanctum;
+use Ramsey\Collection\Collection as CollectionCollection;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,13 +31,21 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(125);
-        view()->composer('layouts.frontend.footer.footer', function ($view) {
+        view()->composer('layouts.frontend.frontend', function ($view) {
+          
             $website = \App\Models\Website::all();
-            $view->with('resume',( $website->count() > 0 ? $website->first()->resume : ''));
-        });
-        view()->composer('layouts.frontend.header.header', function ($view) {
             $categories = \App\Models\Category::all();
-            $view->with('categories', $categories);
+            $view->with([
+                'resume' => ( $website->count() > 0 ? $website->first()->resume : ''),
+                'categories' => $categories
+            ]);
         });
+        view()->composer('frontend/category/posts', function ($view) {
+            $categories = \App\Models\Category::all();
+            $view->with( 'categories',$categories);
+        });
+
+       
+        Paginator::useBootstrap();
     }
 }

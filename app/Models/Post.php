@@ -9,6 +9,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 /**
  * Class Post
@@ -36,6 +37,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Post extends Model
 {
+	use sluggable;
 	protected $table = 'posts';
 
 	protected $casts = [
@@ -90,5 +92,18 @@ class Post extends Model
     public function tags()
     {
         return $this->morphToMany(Tag::class, 'taggable');
+    }
+	 /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 }

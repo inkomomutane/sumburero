@@ -30,16 +30,14 @@
 @endsection
 
 @section('content')
-
-
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
                     <h4>Tabela de tags</h4>
                     <div class="card-header-action">
-                        <button class="btn btn-info" data-toggle="modal" data-target="#novaTag"><i
-                                class="fas fa-plus"></i><span> Nova tag</span></button>
+                        <button class="btn btn-info" data-toggle="modal" data-target="#novaTag">
+                            <i class="fas fa-plus"></i><span> Nova tag</span></button>
                     </div>
                 </div>
                 <div class="card-body">

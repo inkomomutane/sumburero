@@ -16,10 +16,10 @@
               <ul class="main-menu nav justify-content-center">
                 <li class="@if (Route::is('welcome')) active @endif" ><a href="{{ route('welcome') }}">Início</a></li>
                 <li class="@if (Route::is('welcome')) active @endif"><a href="{{ route('welcome') }}">Sobre Nós</a></li>
-                <li class="has-submenu"><a href="causes.html">Notícias</a>
+                <li class="has-submenu @if (Route::is('category.posts')) active @endif"><a href="">Notícias</a>
                   <ul class="submenu-nav">
                       @foreach ($categories as $category)
-                      <li class="@if (Route::is('welcome')) active @endif"><a href="{{ route('welcome') }}">{{$category->title}}</a></li>
+                      <li class="@if (Route::is('category.posts')) active @endif"><a href="{{ route('category.posts',$category->id) }}">{{$category->title}}</a></li>
                       @endforeach
                                       </ul>
                 </li>

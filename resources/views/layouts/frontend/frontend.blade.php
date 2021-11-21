@@ -14,7 +14,7 @@
 
 <body>
     <!--wrapper start-->
-    <div class="wrapper home-default-wrapper">
+    <div class="wrapper @yield('wrapper','home-default-wrapper')">
 
        
         @include('layouts.frontend.header.header')

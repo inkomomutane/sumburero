@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\backend\TagRequest;
-use App\Http\Requests\backend\UploadImage as BackendUploadImage;
+use App\Http\Requests\Backend\TagRequest;
+use App\Http\Requests\Backend\UploadImage as BackendUploadImage;
 use App\Http\Traits\DeleteImages;
 use App\Http\Traits\SyncImage;
 use App\Http\Traits\UploadImage;

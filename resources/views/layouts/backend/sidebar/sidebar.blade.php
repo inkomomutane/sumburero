@@ -12,7 +12,8 @@
                         class="fas fa-chart-line"></i>
                     <span>
                         Estatísticas
-                    </span></a></li>
+                    </span></a>
+                </li>
 
                     <li class="@if (Route::is('tag.*')) active @endif">
                         <a class="nav-link" href="{{ route('tag.index') }}">
@@ -36,6 +37,11 @@
                         <li class="@if (Route::is('user.*')) active @endif">
                             <a class="nav-link" href="{{ route('user.index') }}"><i class="fas fa-users-cog"></i>
                                 <span>Usuarios</span></a></li>
+                    </ul>
+                    <ul class="sidebar-menu">
+                        <li class="@if (Route::is('post.*')) active @endif">
+                            <a class="nav-link" href="{{ route('post.index') }}"><i class="fas fa-newspaper"></i>
+                                <span>Post's</span></a></li>
                     </ul>
         </ul>
     </aside>

@@ -65,17 +65,6 @@
             <div class="card">
 
                 <div class="card-header">
-                    <div>
-                        <form action="{{ route($modelStoreImageRoute, $model->id) }}" method="post" id="store_image">
-                            @csrf
-                            <div class="form-group">
-                              <input type="text" class="form-control" name="modelImageName"  id="modelImageName" placeholder="Nome da Image" required>
-                               </div>
-                            <input type="text" alt="" hidden name="modelImageContent" id="imovel_image_preview_input" value="">
-                        </form>
-                    </div>
-
-
                     <div class="card-header-action">
                         <button class="btn btn-danger mx-2" id="delete_selected_images"><i class="fas fa-trash"></i> <span> Apagar
                                 selecionadas</span></button>
@@ -113,6 +102,11 @@
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg w-100" role="document">
             <div class="modal-content">
+
+                <form action="{{ route($modelStoreImageRoute, $model->id) }}" method="post" id="store_image">
+                    @csrf
+                    
+
                 <div class="modal-header">
                     <h5 class="modal-title">Cortar imagem antes de adicionar</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -120,6 +114,12 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div class="form-group col-sm-12 mx-auto">
+                        <label for="">Nome da Image</label>
+                        <input type="text" class="form-control" name="modelImageName"  id="modelImageName" placeholder="Nome da Image" required>
+                         </div>
+                      <input type="text" alt="" hidden name="modelImageContent" id="imovel_image_preview_input" value="">
+                  
                     <div class="img-container">
                         <div class="row container">
                             <div class="col-md-12">
@@ -129,9 +129,10 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="crop" class="btn btn-primary">Crop</button>
+                    <button type="submit" id="crop" class="btn btn-primary">Crop</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </div>
+            </form>
             </div>
         </div>
     </div>
@@ -174,7 +175,11 @@
                 cropper.destroy();
                 cropper = null;
             });
-            $('#crop').click(function() {
+            $('#store_image').on('submit',function(e) {
+                e.preventDefault();
+                var bs = $('#store_image').serializeArray();
+                
+                
                 canvas = cropper.getCroppedCanvas({
                     width:730,
                 });
@@ -188,7 +193,8 @@
                         var data_file = $('#imovel_image_preview_input');
                         data_file[0].value = image;
                         console.log(data_file);
-                        $('#store_image').submit();
+                        console.log(bs);
+                        e.currentTarget.submit();
                         $('#modal').modal('toggle');
                     };
                 });

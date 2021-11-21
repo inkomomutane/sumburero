@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ConfigSiteController;
+use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\ContactController;
@@ -32,6 +33,7 @@ Route::get('/', function () {
 
 Route::get('contact',[ContactController::class,'index'])->name('contact');
 Route::post('contact/mail',[ContactController::class,'sendMail'])->name('contact.mail');
+Route::get('category/posts/{category}',[CategoryController::class,'posts'])->name('category.posts');
 
 Auth::routes([
     'register' => true,
@@ -59,6 +61,10 @@ Route::post('dashboard/category/image/delete/{category}',[CategoryController::cl
 
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
-Route::resource('user', UserController::class);
+Route::resource('dashboard/user', UserController::class);
+
+Route::resource('dashboard/post', PostController::class);
+Route::post('dashboard/post/image/upload/{post}',[PostController::class,'imageStore'])->name('post.uploadImage');
+Route::post('dashboard/post/image/delete/{post}',[PostController::class,'imageDelete'])->name('post.deleteImage');
 });
 
