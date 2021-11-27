@@ -5,7 +5,7 @@ use Illuminate\Container\Container;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
-class PaginationHelper 
+class PaginationHelper
 {
     public static function paginate(Collection $collection,$showPerPage)
     {
@@ -20,7 +20,7 @@ class PaginationHelper
             ]
         );
     }
-    
+
     public static function paginator($items,$total,$perPage,$currentPage,$options)
     {
         return Container::getInstance()->makeWith(

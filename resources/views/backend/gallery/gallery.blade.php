@@ -105,7 +105,7 @@
 
                 <form action="{{ route($modelStoreImageRoute, $model->id) }}" method="post" id="store_image">
                     @csrf
-                    
+
 
                 <div class="modal-header">
                     <h5 class="modal-title">Cortar imagem antes de adicionar</h5>
@@ -119,7 +119,7 @@
                         <input type="text" class="form-control" name="modelImageName"  id="modelImageName" placeholder="Nome da Image" required>
                          </div>
                       <input type="text" alt="" hidden name="modelImageContent" id="imovel_image_preview_input" value="">
-                  
+
                     <div class="img-container">
                         <div class="row container">
                             <div class="col-md-12">
@@ -168,7 +168,6 @@
 
             $modal.on('shown.bs.modal', function() {
                 cropper = new Cropper(image, {
-                    aspectRatio: 17 / 9,
                     viewMode: 3,
                 });
             }).on('hidden.bs.modal', function() {
@@ -178,11 +177,9 @@
             $('#store_image').on('submit',function(e) {
                 e.preventDefault();
                 var bs = $('#store_image').serializeArray();
-                
-                
-                canvas = cropper.getCroppedCanvas({
-                    width:730,
-                });
+
+
+                canvas = cropper.getCroppedCanvas();
 
                 canvas.toBlob(function(blob) {
                     url = URL.createObjectURL(blob);

@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\TagController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\WebsiteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,14 +27,12 @@ Route::get('/storagelink',function(){
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.home.home');
-})->name('welcome');
+Route::get('/',[WebsiteController::class,'index'])->name('welcome');
 
 
-Route::get('contact',[ContactController::class,'index'])->name('contact');
-Route::post('contact/mail',[ContactController::class,'sendMail'])->name('contact.mail');
-Route::get('category/posts/{category}',[CategoryController::class,'posts'])->name('category.posts');
+Route::get('contacto',[ContactController::class,'index'])->name('contact');
+Route::post('contacto/email',[ContactController::class,'sendMail'])->name('contact.mail');
+Route::get('noticias/{category}',[CategoryController::class,'posts'])->name('category.posts');
 
 Auth::routes([
     'register' => true,

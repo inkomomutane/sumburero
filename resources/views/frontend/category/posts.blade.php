@@ -51,7 +51,7 @@
                         </div>
                         <!--== End Blog Post Item ==-->
                 @endforeach
-{{$posts->links()}}
+                {{$posts->links()}}
                 <div class="pagination-area pt-0 pb-0">
                   <nav>
                     <ul class="page-numbers">

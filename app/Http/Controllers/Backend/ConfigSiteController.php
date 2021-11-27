@@ -95,11 +95,11 @@ class ConfigSiteController extends Controller
             "phones" => 'numeric',
             "open_at" => 'date_format:h:i A',
             "close_at" =>' date_format:h:i A|after:open_at',
-            "map" => "max:1500",
-            "resume" => "max:1500",
-            "mission" => "max:1500",
-            "vision" => "max:1500",
-            "objectives" => "max:1500"
+            "map" => "max:5000",
+            "resume" => "max:500",
+            "mission" => "max:5000",
+            "vision" => "max:5000",
+            "objectives" => "max:5000"
         ]); 
         try {
             $website->update($valid);

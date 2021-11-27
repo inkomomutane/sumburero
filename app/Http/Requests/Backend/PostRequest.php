@@ -26,7 +26,7 @@ class PostRequest extends FormRequest
         return [
             'title' => 'string',
             'subtitle' => 'string',
-            'description' => 'max:1500',
+            'description' => 'max:5000',
             'published'=>'boolean',
             'category_id' =>'required',
             'author_id'=>'required',

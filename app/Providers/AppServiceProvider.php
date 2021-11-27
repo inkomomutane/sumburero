@@ -37,7 +37,8 @@ class AppServiceProvider extends ServiceProvider
             $categories = \App\Models\Category::all();
             $view->with([
                 'resume' => ( $website->count() > 0 ? $website->first()->resume : ''),
-                'categories' => $categories
+                'categories' => $categories,
+                'website' => ( $website->count() > 0 ? $website->first() : null)
             ]);
         });
         view()->composer('frontend/category/posts', function ($view) {

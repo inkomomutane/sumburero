@@ -20,6 +20,11 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('backend/css/style.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/css/components.min.css') }} ">
+    <style>
+      body{
+        background:linear-gradient(to right, #5B52CA 0%, #6258D5 100%);
+      }
+    </style>
 </head>
 
 <body class="layout-4">

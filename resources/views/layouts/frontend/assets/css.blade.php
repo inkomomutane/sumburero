@@ -24,3 +24,5 @@
  <!--== Main Style CSS ==-->
  <link href=" {{ asset('frontend/assets/css/style.css')}}" rel="stylesheet" />
 
+ <link rel="stylesheet" href="{{ asset('backend/fontawesome/css/all.min.css') }}">
+

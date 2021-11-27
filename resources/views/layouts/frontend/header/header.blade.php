@@ -1,4 +1,5 @@
   <!--== Start Header Wrapper ==-->
+
   <header class="header-area header-default sticky-header">
     <div class="container">
       <div class="row align-items-center">
@@ -19,7 +20,8 @@
                 <li class="has-submenu @if (Route::is('category.posts')) active @endif"><a href="">Notícias</a>
                   <ul class="submenu-nav">
                       @foreach ($categories as $category)
-                      <li class="@if (Route::is('category.posts')) active @endif"><a href="{{ route('category.posts',$category->id) }}">{{$category->title}}</a></li>
+
+                      <li class="@if (Route::is('category.posts')) active @endif"><a href="{{ route('category.posts',$category->slug) }}">{{$category->title}}</a></li>
                       @endforeach
                                       </ul>
                 </li>

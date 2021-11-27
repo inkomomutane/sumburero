@@ -14,13 +14,15 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-   
+
     use UploadImage, SyncImage,DeleteImages;
 
 
-    public function posts(Category $category)
+    public function posts(String $category)
     {
-        return view('frontend.category.posts')->with([
+        $category = Category::where('slug',$category)->first();
+       // return $category;
+       return view('frontend.category.posts')->with([
             'title' => $category->title,
             'posts' => PaginationHelper::paginate($category->posts->where('published',true),1)
         ]);

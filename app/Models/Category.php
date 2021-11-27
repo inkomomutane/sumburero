@@ -7,6 +7,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,6 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Category extends Model
 {
+    use Sluggable;
 	protected $table = 'categories';
 	public $incrementing = false;
 
@@ -34,6 +36,7 @@ class Category extends Model
 
 	protected $fillable = [
 		'title',
+        'slug',
 		'description'
 	];
 
@@ -50,5 +53,19 @@ class Category extends Model
     public function videos()
     {
         return $this->morphMany(Video::class, 'videable');
+    }
+
+     /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 }
