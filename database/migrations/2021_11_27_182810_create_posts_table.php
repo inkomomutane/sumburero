@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
             $table->text('description')->nullable();
-            $table->string('url')->nullable();
+            $table->string('slug')->nullable();
             $table->boolean('published')->nullable()->default(false);
             $table->unsignedBigInteger('category_id')->index('fk_posts_categories1_idx');
             $table->unsignedBigInteger('author_id')->index('fk_posts_users1_idx');

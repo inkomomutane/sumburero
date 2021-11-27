@@ -14,11 +14,11 @@ class CreateWebsiteTable extends Migration
     public function up()
     {
         Schema::create('website', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary()->default(1);
+            $table->unsignedBigInteger('id')->default('1')->primary();
             $table->string('name')->nullable();
             $table->string('logo')->nullable();
             $table->timestamps(6);
-            $table->string('resume')->nullable();
+            $table->text('resume')->nullable();
             $table->string('phones')->nullable();
             $table->string('emails')->nullable();
             $table->text('mission')->nullable();
