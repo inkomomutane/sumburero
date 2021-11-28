@@ -1,7 +1,19 @@
 @extends('layouts.frontend.frontend')
 @section('title', 'Sumburero')
+@push('css')
+<style>
+    .homePosts{
+        background-color: #fbfbfb;
+background-position: center !important;
+background-size: cover !important;
+background-repeat: no-repeat !important;
+width: 100%;
+height: 250px;
+z-index: -1;
+    }
+</style>
+@endpush
 @section('content')
-
     <main class="main-content">
         <!--== Start Hero Area Wrapper ==-->
         <section class="home-slider-area slider-default">
@@ -36,8 +48,8 @@
                                         <div class="thumb scene">
                                             <span class="scene-layer" data-depth="0.20">
                                                 <img class=""
-                                                    src="{{ asset('storage' . '/' . $website->images->first()->url) }}"
-                                                    alt="Image-Givest">
+                                                    src="{{ asset('storage' . '/' . $website->cover_image) }}"
+                                                    alt="{{ $website->name}}">
                                             </span>
 
                                         </div>
@@ -135,13 +147,15 @@
                     </div>
                 </div>
                 <div class="row" data-aos="fade-up" data-aos-duration="1000">
-                    
+
                     @foreach ($posts as $post)
                     <div class="col-md-6 col-lg-4">
                         <!--== Start Blog Post Item ==-->
                         <div class="post-item mb-md-150">
                           <div class="thumb">
-                            <a href="blog-details.html"><img src="{{ asset('frontend/assets/img/blog/2.jpg') }}" alt="Givest-Blog"></a>
+                            <a class="homePosts" href="blog-details.html" style="background:url( {{ asset('storage/'.$post->cover_image) }});">
+
+                            </a>
                             <div class="meta-date">
                               <a href="blog.html"><span>{{$post->created_at->day}}</span>{{$post->created_at->month}}</a>
                             </div>
@@ -164,7 +178,7 @@
                               <h4 class="title">
                                 <a href="blog-details.html">{{$post->title}}</a>
                               </h4>
-                              {!! $post->description !!}
+                              {!! $post->resume !!}
                             </div>
                             <div class="post-footer">
                               <a href="blog-details.html" class="btn-theme btn-border-gradient btn-size-xs"><span>Detalhes</span></a>
@@ -185,63 +199,21 @@
                 <div class="row" data-aos="fade-up" data-aos-duration="1000">
                     <div class="col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-4 offset-lg-0 col-xl-4">
                         <div class="section-title text-center text-lg-start">
-                            <h2 class="title title-style mt-xl-30">Our Current Sponsors. <img class="img-shape"
+                            <h2 class="title title-style mt-xl-30">Nossos parceiros. <img class="img-shape"
                                     src="{{ asset('frontend/assets/img/shape/3.png') }}" alt="Image-Givest"></h2>
                         </div>
                     </div>
                     <div class="col-lg-8 col-xl-7 offset-xl-1">
                         <div class="brand-logo-content">
                             <div class="row row-cols-3 row-cols-sm-5">
+                                @foreach ($parceiros as $parceiro)
                                 <div class="col">
                                     <div class="brand-logo-item">
-                                        <img src="assets/img/brand-logo/1.png" alt="Image-Givest">
+                                        <img src="{{ asset('storage/'.$parceiro->cover_image) }}" alt="{{$parceiro->name}}">
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="brand-logo-item">
-                                        <img src="assets/img/brand-logo/2.png" alt="Image-Givest">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="brand-logo-item">
-                                        <img src="assets/img/brand-logo/3.png" alt="Image-Givest">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="brand-logo-item">
-                                        <img src="assets/img/brand-logo/4.png" alt="Image-Givest">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="brand-logo-item">
-                                        <img src="assets/img/brand-logo/5.png" alt="Image-Givest">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="brand-logo-item">
-                                        <img src="assets/img/brand-logo/6.png" alt="Image-Givest">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="brand-logo-item">
-                                        <img src="assets/img/brand-logo/7.png" alt="Image-Givest">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="brand-logo-item">
-                                        <img src="assets/img/brand-logo/8.png" alt="Image-Givest">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="brand-logo-item">
-                                        <img src="assets/img/brand-logo/9.png" alt="Image-Givest">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="brand-logo-item">
-                                        <img src="assets/img/brand-logo/10.png" alt="Image-Givest">
-                                    </div>
-                                </div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>

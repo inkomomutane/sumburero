@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\TagRequest;
 use App\Http\Requests\Backend\UploadImage as BackendUploadImage;
+use App\Http\Traits\CoverImage;
 use App\Http\Traits\DeleteImages;
 use App\Http\Traits\SyncImage;
 use App\Http\Traits\UploadImage;
@@ -15,7 +16,7 @@ class TagController extends Controller
 {
 
 
-    use UploadImage, SyncImage,DeleteImages;
+    use UploadImage, SyncImage,DeleteImages,CoverImage;
 
 
 
@@ -96,6 +97,7 @@ class TagController extends Controller
             'modelStoreImageRoute' => "tag.uploadImage",
             'modelDeleteImageRoute' => 'tag.deleteImage',
             'model' => $tag,
+            'imageLinkRoute'=>'tag.linkImage'
 
         ]);
     }

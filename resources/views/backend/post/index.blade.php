@@ -18,14 +18,14 @@
         <div class="col-12 col-sm-6 col-md-6 col-lg-3">
             <article class="article article-style-b">
                 <div class="article-header">
-                    <div class="article-image" data-background="assets/img/news/img13.jpg" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
+                    <div class="article-image" data-background="{{ asset('storage/'.$post->cover_image) }}" style="background-image: url(&quot;assets/img/news/img13.jpg&quot;);">
                     </div>
                     <div class="article-badge">
                         @if ($post->published)
                         <div class="article-badge-item bg-success"><i class="fas fa-clock"></i> Publicado</div>
                             @else
                             <div class="article-badge-item bg-warning"><i class="fas fa-clock"></i> Não publicado</div>
-                       
+
                         @endif
                           </div>
                 </div>

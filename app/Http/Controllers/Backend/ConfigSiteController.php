@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Traits\CoverImage;
 use App\Models\Website;
 use Illuminate\Http\Request;
 use App\Http\Traits\DeleteImages;
@@ -11,7 +12,7 @@ use App\Http\Traits\UploadImage;
 
 class ConfigSiteController extends Controller
 {
-    use UploadImage, SyncImage,DeleteImages;
+    use UploadImage, SyncImage,DeleteImages,CoverImage;
 
     /**
      * Display a listing of the resource.
@@ -55,6 +56,7 @@ class ConfigSiteController extends Controller
             'modelStoreImageRoute' => "website.uploadImage",
             'modelDeleteImageRoute' => 'website.deleteImage',
             'model' => $website,
+            'imageLinkRoute'=>'website.linkImage'
         ]);
     }
 
@@ -67,7 +69,7 @@ class ConfigSiteController extends Controller
     public function store(Request $request)
     {
         try {
-            
+
             Website::create($request->all());
             session()->flash('success', 'Configurações guardadas com sucesso');
             return redirect()->route('website.index');
@@ -75,7 +77,7 @@ class ConfigSiteController extends Controller
             session()->flash('error', 'Erro ao guardar informações Erro:  ' . $th);
             return redirect()->route('website.index');
         }
-        
+
     }
 
 
@@ -100,7 +102,7 @@ class ConfigSiteController extends Controller
             "mission" => "max:5000",
             "vision" => "max:5000",
             "objectives" => "max:5000"
-        ]); 
+        ]);
         try {
             $website->update($valid);
             session()->flash('success', 'Configurações guardadas com sucesso');
@@ -109,6 +111,6 @@ class ConfigSiteController extends Controller
             session()->flash('error', 'Erro ao guardar informações Erro:  ' . $th);
             return redirect()->route('website.index');
         }
-    
+
     }
 }

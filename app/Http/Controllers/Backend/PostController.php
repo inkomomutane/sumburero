@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\PostRequest;
 use App\Http\Requests\Backend\UploadImage as BackendUploadImage;
+use App\Http\Traits\CoverImage;
 use App\Http\Traits\DeleteImages;
 use App\Http\Traits\SyncImage;
 use App\Http\Traits\UploadImage;
@@ -16,7 +17,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
 
-    use UploadImage, SyncImage,DeleteImages;
+    use UploadImage, SyncImage,DeleteImages,CoverImage;
 
 
 
@@ -98,6 +99,7 @@ class PostController extends Controller
             'modelStoreImageRoute' => "post.uploadImage",
             'modelDeleteImageRoute' => 'post.deleteImage',
             'model' => $post,
+            'imageLinkRoute'=>'post.linkImage'
 
         ]);
     }

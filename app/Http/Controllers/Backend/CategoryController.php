@@ -6,6 +6,7 @@ use App\Helpers\PaginationHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\UploadImage as BackendUploadImage;
 use App\Http\Requests\Backend\CategoryRequest;
+use App\Http\Traits\CoverImage;
 use App\Http\Traits\DeleteImages;
 use App\Http\Traits\SyncImage;
 use App\Http\Traits\UploadImage;
@@ -15,7 +16,7 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
 
-    use UploadImage, SyncImage,DeleteImages;
+    use UploadImage, SyncImage,DeleteImages,CoverImage;
 
 
     public function posts(String $category)
@@ -24,13 +25,13 @@ class CategoryController extends Controller
        // return $category;
        return view('frontend.category.posts')->with([
             'title' => $category->title,
+            'category' => $category,
             'posts' => PaginationHelper::paginate($category->posts->where('published',true),1)
         ]);
     }
 
     public function imageStore(BackendUploadImage $request, Category $category)
     {
-
         return $this->syncImage($request, $category);
     }
 
@@ -106,6 +107,7 @@ class CategoryController extends Controller
             'modelStoreImageRoute' => "category.uploadImage",
             'modelDeleteImageRoute' => 'category.deleteImage',
             'model' => $category,
+            'imageLinkRoute'=>'category.linkImage'
 
         ]);
     }

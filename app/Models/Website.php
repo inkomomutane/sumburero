@@ -47,6 +47,7 @@ class Website extends Model
 		'mission',
 		'vision',
         'map',
+        'cover_image',
 		'objectives',
 		'country',
 		'open_at',

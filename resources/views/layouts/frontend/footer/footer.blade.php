@@ -22,42 +22,14 @@
               <h4 class="widget-title line-style">Galeria</h4>
               <div class="widget-gallery">
                 <div class="row row-cols-3 row-gutter-10">
-                  <div class="col">
-                    <div class="gallery-item">
-                      <img src="{{ asset('frontend/assets/img/photos/gallery1.jpg')}}" alt="Givest-HasTech">
-                      <a class="icon" href="#/"><i class="icofont-instagram"></i></a>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="gallery-item">
-                      <img src="{{ asset('frontend/assets/img/photos/gallery2.jpg')}}" alt="Givest-HasTech">
-                      <a class="icon" href="#/"><i class="icofont-instagram"></i></a>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="gallery-item">
-                      <img src="{{ asset('frontend/assets/img/photos/gallery3.jpg')}}" alt="Givest-HasTech">
-                      <a class="icon" href="#/"><i class="icofont-instagram"></i></a>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="gallery-item">
-                      <img src="{{ asset('frontend/assets/img/photos/gallery4.jpg')}}" alt="Givest-HasTech">
-                      <a class="icon" href="#/"><i class="icofont-instagram"></i></a>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="gallery-item">
-                      <img src="{{ asset('frontend/assets/img/photos/gallery5.jpg')}}" alt="Givest-HasTech">
-                      <a class="icon" href="#/"><i class="icofont-instagram"></i></a>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="gallery-item">
-                      <img src="{{ asset('frontend/assets/img/photos/gallery6.jpg')}}" alt="Givest-HasTech">
-                      <a class="icon" href="#/"><i class="icofont-instagram"></i></a>
-                    </div>
-                  </div>
+                    @foreach ($images as $image)
+                    <div class="col">
+                        <div class="gallery-item">
+                          <img src="{{ asset('storage/'.$image->url)}}" alt="{{$image->name}}">
+                          <a class="icon" href="#/"><i class="fas fa-newspaper    "></i></a>
+                        </div>
+                      </div>
+                    @endforeach
                 </div>
               </div>
             </div>

@@ -21,15 +21,13 @@ trait UploadImage
             $imageContent = str_replace('data:image/png;base64,', '', $imageContent);
             $imageContent = str_replace(' ', '+', $imageContent);
             Storage::put('public'.'/'.$imageName, base64_decode($imageContent));
-
-            //dd(storage_path('public/'.$imageName));
             ImageOptimizer::optimize(
             Storage::path('public'.'/'.$imageName),
             Storage::path('public'.'/'.$imageName)
         );
             return $imageName;
         } catch (\Throwable $throw) {
-            dd($throw);
+           
             return false;
         }
     }

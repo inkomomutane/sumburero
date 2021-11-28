@@ -94,6 +94,41 @@
                     </div>
                 </div>
             </div>
+
+
+            <div class="card">
+
+                <div class="card-header">
+                    <div class="card-header-action">
+                        <button class="btn btn-success mx-2" id="link_selected_image"><i class="fas fa-image    "></i></i> <span>
+                                Usar Imagem selecionada</span></button>  </div>
+
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="row gutters-sm">
+                            <form class="row col-sm-12" action="{{ route($imageLinkRoute, [
+                                'id' => $model,
+                                'model' => get_class($model)
+                            ]) }}" method="post" id="imageLink">
+                                @csrf
+                                @foreach ($model->images as $foto)
+                                    <div class="col-sm-3">
+                                        <label class="imagecheck mb-4">
+                                            <input name="cover_image" type="radio" value="{{ $foto->url }}" class="imagecheck-input"
+                                                name="{{ $foto->url }}" />
+                                            <figure class="imagecheck-figure">
+                                                <img src="{{ asset('storage') }}/{{ $foto->url }}"
+                                                    alt="{{ $foto->url }}" class="imagecheck-image">
+                                            </figure>
+                                        </label>
+                                    </div>
+                                @endforeach
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     </div>
@@ -167,9 +202,7 @@
             });
 
             $modal.on('shown.bs.modal', function() {
-                cropper = new Cropper(image, {
-                    viewMode: 3,
-                });
+                cropper = new Cropper(image);
             }).on('hidden.bs.modal', function() {
                 cropper.destroy();
                 cropper = null;
@@ -201,6 +234,9 @@
         $(function(){
             $('#delete_selected_images').on('click',function(){
                 $('#delete_image').submit();
+            });
+            $("#link_selected_image").on('click', function () {
+                $('#imageLink').submit();
             });
         });
     </script>
