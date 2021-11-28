@@ -41,7 +41,7 @@
                 <div class="row">
                   <div class="col-6 col-sm-6 col-md-6 pr-sm-5">
                     <ul class="nav-menu nav">
-                      <li><a href="about.html">Início</a></li>
+                      <li><a href="{{ url('/') }}">Início</a></li>
                       <li><a href="blog.html">Sobre nós</a></li>
                       <li><a href="#/">Notícias</a></li>
                     </ul>
@@ -49,7 +49,7 @@
                   <div class="col-6 col-sm-6 col-md-6 pl-sm-5">
                     <ul class="nav-menu nav align-right">
                         <li><a href="#/">contacte nos</a></li>
-                        <li><a href="#/">Pesqisar</a></li>
+                        <li><a href="#/">Pesquisar</a></li>
                     </ul>
                   </div>
                 </div>

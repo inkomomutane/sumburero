@@ -11,6 +11,7 @@ use App\Http\Traits\DeleteImages;
 use App\Http\Traits\SyncImage;
 use App\Http\Traits\UploadImage;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -26,7 +27,8 @@ class CategoryController extends Controller
        return view('frontend.category.posts')->with([
             'title' => $category->title,
             'category' => $category,
-            'posts' => PaginationHelper::paginate($category->posts->where('published',true),1)
+            'posts' => PaginationHelper::paginate($category->posts->where('published',true),15),
+            'tags' => Tag::all()
         ]);
     }
 

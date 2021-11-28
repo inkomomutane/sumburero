@@ -17,7 +17,7 @@
               <ul class="main-menu nav justify-content-center">
                 <li class="@if (Route::is('welcome')) active @endif" ><a href="{{ route('welcome') }}">Início</a></li>
                 <li class="@if (Route::is('welcome')) active @endif"><a href="{{ route('welcome') }}">Sobre Nós</a></li>
-                <li class="has-submenu @if (Route::is('category.posts')) active @endif"><a href="">Notícias</a>
+                <li class="has-submenu @if (Route::is('web.posts') || Route::is('category.posts')) active @endif"><a href="{{ route('web.posts') }}">Notícias</a>
                   <ul class="submenu-nav">
                       @foreach ($categories as $category)
 

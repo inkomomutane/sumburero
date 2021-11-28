@@ -118,16 +118,7 @@ z-index: -1;
                             <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting
                                 industry orem Ipsum has been the industry's standard dummy text ever since the 1500s, when
                                 an unknown.</p>
-                            <ul class="list-icon-style">
-                                <li><img class="icon-img" src="assets/img/icons/check-double-line.png"
-                                        alt="Image-Givest"> Need your simple help <br>for save children.</li>
-                                <li class="line-center"></li>
-                                <li><img class="icon-img" src="assets/img/icons/check-double-line.png"
-                                        alt="Image-Givest"> Need your simple help <br>for save children.</li>
-                            </ul>
-                            <a href="#/" class="btn-theme btn-gradient btn-slide">Donate Now <img class="icon icon-img"
-                                    src="assets/img/icons/arrow-line-right2.png" alt="Icon"></a>
-                        </div>
+                           </div>
                     </div>
                 </div>
             </div>

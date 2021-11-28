@@ -28,23 +28,23 @@
                          <!--== Start Blog Post Item ==-->
                         <div class="post-item">
                             <div class="thumb">
-                            <a href="blog-details.html"><img src="{{ asset('storage/'.$post->cover_image) }}" alt="Givest-Blog"></a>
+                            <a href="{{ route('web.post', $post->slug) }}"><img src="{{ asset('storage/'.$post->cover_image) }}" alt="Givest-Blog"></a>
                             <div class="meta-date">
-                                <a href="blog.html"><span>{{$post->created_at->day}}</span> {{$post->created_at->month}}</a>
+                                <a href="{{ route('web.post', $post->slug) }}"><span>{{$post->created_at->day}}</span> {{$post->created_at->month}}</a>
                             </div>
                             <div class="shape-line"></div>
                             </div>
                             <div class="content">
                             <div class="inner-content">
                                 <div class="meta">
-                                <a class="post-category" href="blog.html">{{$title}}</a>
-                                <a class="post-author" href="blog.html"><span class="icon"><img class="icon-img" src="{{ asset('frontend/assets/img/icons/admin1.png') }}" alt="Icon-Image"></span>{{$post->author->name}}</a>
+                                <a class="post-category" href="{{ route('category.posts', $category->slug) }}">{{$title}}</a>
+                                <a class="post-author" href="#/"><span class="icon"><img class="icon-img" src="{{ asset('frontend/assets/img/icons/admin1.png') }}" alt="Icon-Image"></span>{{$post->author->name}}</a>
                                 </div>
                                 <h4 class="title">
-                                <a href="blog-details.html">{{$post->title}}.</a>
+                                <a href="{{ route('web.post', $post->slug) }}">{{$post->title}}.</a>
                                 </h4>
                                 <p>{{$post->resume}}</p>
-                                <a href="blog-details.html" class="btn-theme btn-border-gradient btn-size-md"><span>Read More <img class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
+                                <a href="{{ route('web.post', $post->slug) }}" class="btn-theme btn-border-gradient btn-size-md"><span>Read More <img class="icon icon-img" src="assets/img/icons/arrow-line-right-gradient.png" alt="Icon"></span></a>
                             </div>
                             </div>
                         </div>
@@ -69,15 +69,24 @@
                 </div>
                 <div class="widget">
                   <h3 class="widget-title">Categorias</h3>
-                  <div class="separator-line">
-                    <img class="me-1" src="{{ asset('frontend/assets/img/shape/line-t2.png') }}" alt="Image-Givest">
-                  </div>
+
                   <div class="widget-category">
                       @foreach ($categories as $category)
                          <a href="{{ route('category.posts',$category->id) }}"> {{$category->title}} <span>({{$category->posts->where('published',true)->count()}})</span></a>
                       @endforeach
                   </div>
                 </div>
+
+                <div class="widget mb-0 pb-3">
+                    <h3 class="widget-title">Tags</h3>
+                    <div class="widget-tags">
+                      <ul>
+                        @foreach ($tags as $tag)
+                        <li><a href="#/">{{$tag->name}}</a></li>
+                        @endforeach
+                      </ul>
+                    </div>
+                  </div>
               </div>
             </div>
           </div>
